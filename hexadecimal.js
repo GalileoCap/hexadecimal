@@ -65,8 +65,7 @@ function dec_a_hex(d){ //U: Me devuelve el digito hexadecimal correcto para mi n
 	if (d - r == 0){
 		return valores[r];
 	}	else {
-	console.error("ERROR dec_a_hex, d, d % 16", d, r);
-	return false;
+		return (dec_a_hex( (d - r)/16 ) + valores[r]);
 	}
 }
 
