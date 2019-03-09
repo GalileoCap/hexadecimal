@@ -3,16 +3,69 @@
 
 const valores= "0123456789ABCDEF";
 
+//****************
+//S: Browser stuff
+
+var num
+var from
+var to
+var go
+var show
+
+function browser_start(){
+	console.log("SCRIPT LOADED");
+	go= document.getElementById("go");
+	show= document.getElementById("show");
+	
+	go.onclick= function() { show.innerHTML= ui_Calcular() };
+}
+
+function ui_Calcular(){
+	console.log("CALCULANDO");
+	var r= "error";
+	num= document.getElementById("numero").value;
+	from= document.getElementById("from").value;
+	to= document.getElementById("to").value;
+
+	if (from == "hex"){
+		if (to == "bin"){
+			r= hex_a_bin(num);
+		} else if (to == "dec") {
+			r= hex_a_dec(num);
+		} else {
+			r= num;
+		}
+	} else if (from == "bin"){
+		if (to == "hex"){
+			r= bin_a_hex(num);
+		} else if (to == "dec") {
+			r= bin_a_dec(num);
+		} else {
+			r= num;
+		}
+	} else if (from == "dec"){
+		if (to == "hex"){
+			r= dec_a_hex(num);
+		} else if (to == "bin"){
+			r= dec_a_bin(num);
+		} else {
+			r= num;
+		}
+	}
+	
+	return r;
+}
+
 //***************************************
 //S: Transformar de binario a hexadecimal
 //XXX: Solo funciona si recibe un string
 
-function escribir_hex(d){ //U: Me devuelve el digito hexadecimal correcto para mi número (ej: 15=F)
+function dec_a_hex(d){ //U: Me devuelve el digito hexadecimal correcto para mi número (ej: 15=F)
 	var	r= d % 16;
 	if (d - r == 0){
 		return valores[r];
 	}	else {
-	console.error("ERROR escribir_hex, d, d % 16", d, r);
+	console.error("ERROR dec_a_hex, d, d % 16", d, r);
 	return false;
 	}
 }
@@ -34,7 +87,7 @@ function bin_a_hex(bin){ //U: Pasa de binario a hexadecimal
 	for (var i of separado){
 		if (i != ""){ //A: El split me guarda espacios vacios entre los numeros
 			var decimal= bin_a_dec(i);
-			var hexadecimal= escribir_hex(decimal);
+			var hexadecimal= dec_a_hex(decimal);
 			r.push(hexadecimal);
 			//console.log(i, decimal, hexadecimal);
 		}
