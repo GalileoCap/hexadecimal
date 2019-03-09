@@ -25,7 +25,7 @@ function bin_a_dec(bin){ //U: Pasa de binario de cuatro digitos a decimal.
 			r+= 2**j; //E: 0001 = 2**0 = 1	
 		}
 	}
-	return r;
+	return r; //A: Devuelve un int
 }
 
 function bin_a_hex(bin){ //U: Pasa de binario a hexadecimal
@@ -80,7 +80,7 @@ function dec_a_bin(dec){ //U: Transforma de decimal a binario usando el sistema 
 	return r
 }
 
-function hex_a_bin(hex){
+function hex_a_bin(hex){ //U: Transforma de hexadecimal a binario
 	var r= [];
 	var separado= hex.split(/(.)/);
 	for (var i of separado){
@@ -88,7 +88,7 @@ function hex_a_bin(hex){
 			var decimal= hex_a_dec(i);
 			var binario= dec_a_bin(decimal);
 			r.push(binario)
-			//console.log(i, decimal, binario)	
+			//console.log(i, decimal, binario)
 		}
 	}
 	r= r.join('');
