@@ -4,24 +4,23 @@
 	</head>
 	<body style="text-align:center;">
 		Numero a convertir <input id="numero" type="text">
-		<br>	
-		<br>	
+		<br><br>	
 		De	<select id="from">
 					<option value="hex">Hexadecimal</option>
 					<option value="dec">Decimal</option>
 					<option value="bin">Binario</option>
 				</select>
-		<br>	
-		<br>	
+		<br><br>	
 		A 	<select id="to">
 					<option value="hex">Hexadecimal</option>
 					<option value="dec">Decimal</option>
 					<option value="bin">Binario</option>
 				</select>
-		<br>	
-		<br>	
+		<br><br>	
 		<input type="submit" id="go" value="Convertir">
 		<p id="show"></p>
+		<br> <br>
+		<p><b>No anda bien la transformacion de Hexadecimal a Decimal (solo anda para numeros hexa de 1 digito); No anda bien la transformacion Decimal a Hexadecimal (solo anda del 0 al 15)</b></p>
 	</body>
 	<script src="hexadecimal.js"></script>
 	<script>browser_start()</script>
